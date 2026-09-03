@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonido Vivo - Tienda de Instrumentos | Viña del Mar</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========== ENCABEZADO ========== -->
+  <header class="encabezado">
+    <div class="contenedor">
+      <a href="index.html" class="logo">
+        Sonido <span>Vivo</span>
+      </a>
+
+      <!-- Botón menú móvil -->
+      <button class="btn-menu" id="btn-menu" aria-label="Abrir menú">☰</button>
+
+      <nav class="nav-principal" id="nav-principal">
+        <ul>
+          <li><a href="index.html" class="activo">Inicio</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="novedades.html">Novedades</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="carrito.html">Carrito (<span id="contador-carrito">0</span>)</a></li>
+          <li><a href="login.html">Ingresar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========== BANNER ========== -->
+  <section class="banner">
+    <div class="banner-contenido">
+      <h1>Sonido Vivo</h1>
+      <p>Tu tienda de instrumentos y equipos de audio en Viña del Mar. Más de 11 años acompañando a músicos de la región.</p>
+      <a href="catalogo.html" class="btn btn-primario">Ver catálogo</a>
+    </div>
+  </section>
+
+  <!-- ========== PRODUCTOS DESTACADOS ========== -->
+  <main>
+    <section class="seccion">
+      <div class="contenedor">
+        <h2>Productos destacados</h2>
+        <!-- Este grid se llena con JavaScript -->
+        <div class="grid-productos" id="productos-destacados">
+          <!-- Los productos se insertan desde main.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== PIE DE PÁGINA ========== -->
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <div>
+        <h4>Sonido Vivo</h4>
+        <p>Instrumentos musicales y audio profesional en Viña del Mar.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p>Av. Libertad 1234, Viña del Mar</p>
+        <p>Tel: +56 32 123 4567</p>
+        <p>contacto@sonidovivo.cl</p>
+      </div>
+      <div>
+        <h4>Enlaces</h4>
+        <p><a href="nosotros.html">Sobre nosotros</a></p>
+        <p><a href="registro.html">Crear cuenta</a></p>
+        <p><a href="admin-index.html">Administración</a></p>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Sonido Vivo - Viña del Mar. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

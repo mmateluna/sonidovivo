@@ -1,0 +1,823 @@
+/* ============================================
+   SONIDO VIVO - Estilos principales
+   Tienda de instrumentos - Viña del Mar
+   ============================================ */
+
+/* --- Variables de color (paleta musical) --- */
+:root {
+  --color-fondo: #1a1a1a;
+  --color-fondo-claro: #2d2d2d;
+  --color-superficie: #242424;
+  --color-texto: #f5f5f5;
+  --color-texto-suave: #c0c0c0;
+  --color-acento: #e8a838;
+  --color-acento-oscuro: #c48920;
+  --color-rojo: #c0392b;
+  --color-borde: #444;
+  --color-exito: #27ae60;
+  --color-error: #e74c3c;
+  --fuente: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --ancho-max: 1200px;
+}
+
+/* --- Reset básico --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fuente);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-acento);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-acento-oscuro);
+}
+
+ul {
+  list-style: none;
+}
+
+/* --- Contenedor general --- */
+.contenedor {
+  width: 90%;
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+}
+
+main {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+/* ============================================
+   HEADER Y NAVEGACIÓN (área pública)
+   ============================================ */
+.encabezado {
+  background-color: var(--color-fondo-claro);
+  border-bottom: 3px solid var(--color-acento);
+  padding: 0.8rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.encabezado .contenedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-texto);
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.logo span {
+  color: var(--color-acento);
+}
+
+/* Botón hamburguesa (móvil) */
+.btn-menu {
+  display: none;
+  background: none;
+  border: 2px solid var(--color-acento);
+  color: var(--color-acento);
+  font-size: 1.4rem;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.nav-principal ul {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.nav-principal a {
+  color: var(--color-texto);
+  font-size: 0.95rem;
+  padding: 0.3rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.nav-principal a:hover,
+.nav-principal a.activo {
+  color: var(--color-acento);
+  border-bottom-color: var(--color-acento);
+}
+
+/* ============================================
+   BANNER / HERO
+   ============================================ */
+.banner {
+  position: relative;
+  min-height: 320px;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=1400") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.banner-contenido h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--color-acento);
+}
+
+.banner-contenido p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  color: var(--color-texto-suave);
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primario {
+  background-color: var(--color-acento);
+  color: #1a1a1a;
+  font-weight: bold;
+}
+
+.btn-primario:hover {
+  background-color: var(--color-acento-oscuro);
+  color: #1a1a1a;
+}
+
+.btn-secundario {
+  background-color: transparent;
+  border: 2px solid var(--color-acento);
+  color: var(--color-acento);
+}
+
+.btn-secundario:hover {
+  background-color: var(--color-acento);
+  color: #1a1a1a;
+}
+
+.btn-peligro {
+  background-color: var(--color-rojo);
+  color: #fff;
+}
+
+.btn-peligro:hover {
+  background-color: #a93226;
+  color: #fff;
+}
+
+.btn-pequeno {
+  padding: 0.35rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+/* ============================================
+   SECCIONES Y TÍTULOS
+   ============================================ */
+.seccion {
+  padding: 2rem 0;
+}
+
+.seccion h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-acento);
+  border-bottom: 2px solid var(--color-borde);
+  padding-bottom: 0.5rem;
+}
+
+.seccion h3 {
+  color: var(--color-acento);
+  margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   GRID DE PRODUCTOS
+   ============================================ */
+.grid-productos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.tarjeta-producto {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.tarjeta-producto:hover {
+  border-color: var(--color-acento);
+}
+
+.tarjeta-producto img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.tarjeta-producto .info {
+  padding: 1rem;
+}
+
+.tarjeta-producto .categoria {
+  font-size: 0.8rem;
+  color: var(--color-acento);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tarjeta-producto h3 {
+  font-size: 1.1rem;
+  margin: 0.3rem 0;
+  color: var(--color-texto);
+}
+
+.tarjeta-producto .precio {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-acento);
+  margin: 0.5rem 0;
+}
+
+.tarjeta-producto .acciones {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.8rem;
+}
+
+/* ============================================
+   DETALLE DE PRODUCTO
+   ============================================ */
+.detalle-producto {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.detalle-producto img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--color-borde);
+}
+
+.detalle-info .precio {
+  font-size: 1.8rem;
+  color: var(--color-acento);
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.detalle-info .categoria {
+  color: var(--color-acento);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+/* ============================================
+   NOVEDADES / NOTICIAS
+   ============================================ */
+.grid-novedades {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.tarjeta-novedad {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tarjeta-novedad img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.tarjeta-novedad .info {
+  padding: 1.2rem;
+}
+
+.tarjeta-novedad .fecha {
+  font-size: 0.85rem;
+  color: var(--color-texto-suave);
+}
+
+.articulo-novedad img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.articulo-novedad .fecha {
+  color: var(--color-texto-suave);
+  margin-bottom: 1rem;
+}
+
+.articulo-novedad p {
+  margin-bottom: 1rem;
+  color: var(--color-texto-suave);
+}
+
+/* ============================================
+   CARRITO
+   ============================================ */
+.tabla-carrito {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+.tabla-carrito th,
+.tabla-carrito td {
+  padding: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.tabla-carrito th {
+  background-color: var(--color-fondo-claro);
+  color: var(--color-acento);
+}
+
+.tabla-carrito img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.total-carrito {
+  text-align: right;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--color-acento);
+  margin-bottom: 1rem;
+}
+
+.carrito-vacio {
+  text-align: center;
+  padding: 3rem;
+  color: var(--color-texto-suave);
+}
+
+/* ============================================
+   FORMULARIOS
+   ============================================ */
+.formulario {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  padding: 1.5rem;
+  max-width: 600px;
+}
+
+.formulario.formulario-ancho {
+  max-width: 800px;
+}
+
+.grupo-form {
+  margin-bottom: 1.2rem;
+}
+
+.grupo-form label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: var(--color-texto);
+}
+
+.grupo-form input,
+.grupo-form select,
+.grupo-form textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--color-borde);
+  border-radius: 4px;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.grupo-form input:focus,
+.grupo-form select:focus,
+.grupo-form textarea:focus {
+  outline: none;
+  border-color: var(--color-acento);
+}
+
+.grupo-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Mensaje de error bajo cada campo */
+.mensaje-error {
+  color: var(--color-error);
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  display: none;
+}
+
+.mensaje-error.visible {
+  display: block;
+}
+
+.campo-invalido {
+  border-color: var(--color-error) !important;
+}
+
+.mensaje-exito {
+  background-color: rgba(39, 174, 96, 0.2);
+  border: 1px solid var(--color-exito);
+  color: var(--color-exito);
+  padding: 0.8rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  display: none;
+}
+
+.mensaje-exito.visible {
+  display: block;
+}
+
+.fila-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* ============================================
+   TABLAS ADMIN
+   ============================================ */
+.tabla-admin {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.tabla-admin th,
+.tabla-admin td {
+  padding: 0.7rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.tabla-admin th {
+  background-color: #111;
+  color: var(--color-acento);
+}
+
+.tabla-admin tr:hover {
+  background-color: var(--color-fondo-claro);
+}
+
+.tabla-admin img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* ============================================
+   ÁREA ADMINISTRATIVA (estilo diferenciado)
+   ============================================ */
+body.admin {
+  background-color: #121212;
+}
+
+.encabezado-admin {
+  background-color: #0d0d0d;
+  border-bottom: 3px solid var(--color-rojo);
+  padding: 0.8rem 0;
+}
+
+.encabezado-admin .logo {
+  font-size: 1.2rem;
+}
+
+.encabezado-admin .logo span {
+  color: var(--color-rojo);
+}
+
+.badge-admin {
+  background-color: var(--color-rojo);
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.nav-admin ul {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-admin a {
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+}
+
+.nav-admin a:hover,
+.nav-admin a.activo {
+  background-color: var(--color-rojo);
+  color: #fff;
+}
+
+.panel-admin {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.tarjeta-panel {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-left: 4px solid var(--color-rojo);
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+
+.tarjeta-panel h3 {
+  color: var(--color-rojo);
+  margin-bottom: 0.5rem;
+}
+
+.tarjeta-panel p {
+  color: var(--color-texto-suave);
+  margin-bottom: 1rem;
+}
+
+/* ============================================
+   EQUIPO / NOSOTROS
+   ============================================ */
+.texto-historia p {
+  margin-bottom: 1rem;
+  color: var(--color-texto-suave);
+}
+
+.grid-equipo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.miembro-equipo {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.miembro-equipo .avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--color-acento);
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0 auto 1rem;
+}
+
+.miembro-equipo h3 {
+  color: var(--color-texto);
+}
+
+.miembro-equipo .rol {
+  color: var(--color-acento);
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.pie-pagina {
+  background-color: var(--color-fondo-claro);
+  border-top: 2px solid var(--color-acento);
+  padding: 2rem 0 1rem;
+  margin-top: auto;
+}
+
+.pie-pagina .contenedor {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.pie-pagina h4 {
+  color: var(--color-acento);
+  margin-bottom: 0.5rem;
+}
+
+.pie-pagina p,
+.pie-pagina a {
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+}
+
+.pie-pagina a:hover {
+  color: var(--color-acento);
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-borde);
+  color: var(--color-texto-suave);
+  font-size: 0.85rem;
+}
+
+/* ============================================
+   UTILIDADES
+   ============================================ */
+.oculto {
+  display: none !important;
+}
+
+.texto-centro {
+  text-align: center;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+/* ============================================
+   MEDIA QUERIES - Responsive
+   ============================================ */
+
+/* --- Móvil: < 768px --- */
+@media (max-width: 767px) {
+  .btn-menu {
+    display: block;
+  }
+
+  .nav-principal {
+    width: 100%;
+    display: none;
+  }
+
+  .nav-principal.abierto {
+    display: block;
+  }
+
+  .nav-principal ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0;
+  }
+
+  .nav-admin ul {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .banner-contenido h1 {
+    font-size: 1.6rem;
+  }
+
+  .tabla-carrito,
+  .tabla-admin {
+    font-size: 0.8rem;
+  }
+
+  .tabla-carrito th,
+  .tabla-carrito td,
+  .tabla-admin th,
+  .tabla-admin td {
+    padding: 0.4rem;
+  }
+}
+
+/* --- Tablet: >= 768px --- */
+@media (min-width: 768px) {
+  .grid-productos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-novedades {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-equipo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .detalle-producto {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .fila-form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pie-pagina .contenedor {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .panel-admin {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .banner-contenido h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* --- Escritorio: >= 1280px --- */
+@media (min-width: 1280px) {
+  .grid-productos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid-novedades {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-equipo {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .panel-admin {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .banner {
+    min-height: 400px;
+  }
+
+  .banner-contenido h1 {
+    font-size: 3rem;
+  }
+}

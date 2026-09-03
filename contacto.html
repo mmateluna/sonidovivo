@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Sonido Vivo</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <div class="contenedor">
+      <a href="index.html" class="logo">Sonido <span>Vivo</span></a>
+      <button class="btn-menu" id="btn-menu" aria-label="Abrir menú">☰</button>
+      <nav class="nav-principal" id="nav-principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="novedades.html">Novedades</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html" class="activo">Contacto</a></li>
+          <li><a href="carrito.html">Carrito (<span id="contador-carrito">0</span>)</a></li>
+          <li><a href="login.html">Ingresar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="seccion">
+      <div class="contenedor">
+        <h2>Contáctanos</h2>
+        <p class="mb-1">¿Tienes dudas sobre un instrumento? Escríbenos y te respondemos.</p>
+
+        <!-- Mensaje de éxito (oculto por defecto) -->
+        <div class="mensaje-exito" id="mensaje-contacto"></div>
+
+        <form class="formulario" id="form-contacto" novalidate>
+          <!-- Nombre -->
+          <div class="grupo-form">
+            <label for="contacto-nombre">Nombre</label>
+            <input type="text" id="contacto-nombre" name="nombre" maxlength="100" placeholder="Tu nombre">
+            <p class="mensaje-error" id="error-contacto-nombre"></p>
+          </div>
+
+          <!-- Correo -->
+          <div class="grupo-form">
+            <label for="contacto-correo">Correo</label>
+            <input type="email" id="contacto-correo" name="correo" maxlength="100" placeholder="tu@correo.cl">
+            <p class="mensaje-error" id="error-contacto-correo"></p>
+          </div>
+
+          <!-- Comentario -->
+          <div class="grupo-form">
+            <label for="contacto-comentario">Comentario</label>
+            <textarea id="contacto-comentario" name="comentario" maxlength="500" placeholder="Escribe tu mensaje (máx. 500 caracteres)"></textarea>
+            <p class="mensaje-error" id="error-contacto-comentario"></p>
+          </div>
+
+          <button type="submit" class="btn btn-primario">Enviar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <div>
+        <h4>Sonido Vivo</h4>
+        <p>Instrumentos musicales y audio profesional en Viña del Mar.</p>
+      </div>
+      <div>
+        <h4>Datos</h4>
+        <p>Av. Libertad 1234, Viña del Mar</p>
+        <p>Tel: +56 32 123 4567</p>
+        <p>contacto@sonidovivo.cl</p>
+      </div>
+      <div>
+        <h4>Horario</h4>
+        <p>Lun a Vie: 10:00 - 19:00</p>
+        <p>Sáb: 10:00 - 14:00</p>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Sonido Vivo - Viña del Mar.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/validaciones.js"></script>
+</body>
+</html>

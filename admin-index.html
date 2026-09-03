@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Admin - Sonido Vivo</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="admin">
+
+  <!-- Encabezado admin: barra oscura con acento rojo (diferente al público) -->
+  <header class="encabezado-admin">
+    <div class="contenedor">
+      <a href="admin-index.html" class="logo">
+        Sonido <span>Vivo</span>
+        <span class="badge-admin">ADMIN</span>
+      </a>
+      <nav class="nav-admin">
+        <ul>
+          <li><a href="admin-index.html" class="activo">Inicio</a></li>
+          <li><a href="admin-productos.html">Productos</a></li>
+          <li><a href="admin-usuarios.html">Usuarios</a></li>
+          <li><a href="index.html">← Volver al sitio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="seccion">
+      <div class="contenedor">
+        <h2>Panel de administración</h2>
+        <p class="mb-1">Bienvenido/a al área de gestión de Sonido Vivo.</p>
+
+        <div class="panel-admin">
+          <article class="tarjeta-panel">
+            <h3>Productos</h3>
+            <p>Ver, agregar y editar el catálogo de instrumentos.</p>
+            <a href="admin-productos.html" class="btn btn-primario btn-pequeno">Gestionar productos</a>
+          </article>
+
+          <article class="tarjeta-panel">
+            <h3>Usuarios</h3>
+            <p>Administrar clientes, vendedores y administradores.</p>
+            <a href="admin-usuarios.html" class="btn btn-primario btn-pequeno">Gestionar usuarios</a>
+          </article>
+
+          <article class="tarjeta-panel">
+            <h3>Sitio público</h3>
+            <p>Volver a la tienda visible para los clientes.</p>
+            <a href="index.html" class="btn btn-secundario btn-pequeno">Ir al sitio</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <div>
+        <h4>Sonido Vivo - Admin</h4>
+        <p>Panel interno de gestión.</p>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Sonido Vivo - Área administrativa.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
