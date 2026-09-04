@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo - Sonido Vivo</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <div class="contenedor">
+      <a href="index.html" class="logo">Sonido <span>Vivo</span></a>
+      <button class="btn-menu" id="btn-menu" aria-label="Abrir menú">☰</button>
+      <nav class="nav-principal" id="nav-principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalogo.html" class="activo">Catálogo</a></li>
+          <li><a href="novedades.html">Novedades</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="carrito.html">Carrito (<span id="contador-carrito">0</span>)</a></li>
+          <li><a href="login.html">Ingresar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="seccion">
+      <div class="contenedor">
+        <h2>Catálogo de productos</h2>
+        <p class="mb-1">Explora nuestras guitarras, baterías, teclados y más.</p>
+
+        <!-- Grid vacío: se llena con el arreglo "productos" desde main.js -->
+        <div class="grid-productos" id="lista-productos">
+          <p>Cargando productos...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <div>
+        <h4>Sonido Vivo</h4>
+        <p>Instrumentos musicales y audio profesional en Viña del Mar.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p>Av. Libertad 1234, Viña del Mar</p>
+      </div>
+      <div>
+        <h4>Enlaces</h4>
+        <p><a href="nosotros.html">Sobre nosotros</a></p>
+        <p><a href="contacto.html">Contáctanos</a></p>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Sonido Vivo - Viña del Mar.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

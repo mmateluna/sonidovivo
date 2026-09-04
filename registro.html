@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - Sonido Vivo</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <div class="contenedor">
+      <a href="index.html" class="logo">Sonido <span>Vivo</span></a>
+      <button class="btn-menu" id="btn-menu" aria-label="Abrir menú">☰</button>
+      <nav class="nav-principal" id="nav-principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="novedades.html">Novedades</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="carrito.html">Carrito (<span id="contador-carrito">0</span>)</a></li>
+          <li><a href="login.html">Ingresar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="seccion">
+      <div class="contenedor">
+        <h2>Registro de cliente</h2>
+        <p class="mb-1">Crea tu cuenta para comprar en Sonido Vivo.</p>
+
+        <div class="mensaje-exito" id="mensaje-usuario"></div>
+
+        <form class="formulario formulario-ancho" id="form-usuario" novalidate>
+
+          <div class="fila-form">
+            <!-- RUN -->
+            <div class="grupo-form">
+              <label for="run">RUN (sin puntos ni guión)</label>
+              <input type="text" id="run" name="run" placeholder="Ej: 123456785" maxlength="10">
+              <p class="mensaje-error" id="error-run"></p>
+            </div>
+
+            <!-- Tipo de usuario (en registro público = Cliente) -->
+            <div class="grupo-form">
+              <label for="tipo-usuario">Tipo de usuario</label>
+              <select id="tipo-usuario" name="tipo">
+                <option value="">Seleccione...</option>
+                <option value="Cliente" selected>Cliente</option>
+              </select>
+              <p class="mensaje-error" id="error-tipo-usuario"></p>
+            </div>
+          </div>
+
+          <div class="fila-form">
+            <div class="grupo-form">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" maxlength="50" placeholder="Tu nombre">
+              <p class="mensaje-error" id="error-nombre"></p>
+            </div>
+
+            <div class="grupo-form">
+              <label for="apellidos">Apellidos</label>
+              <input type="text" id="apellidos" name="apellidos" maxlength="100" placeholder="Tus apellidos">
+              <p class="mensaje-error" id="error-apellidos"></p>
+            </div>
+          </div>
+
+          <div class="grupo-form">
+            <label for="correo">Correo</label>
+            <input type="email" id="correo" name="correo" maxlength="100" placeholder="tu@correo.cl">
+            <p class="mensaje-error" id="error-correo"></p>
+          </div>
+
+          <div class="fila-form">
+            <div class="grupo-form">
+              <label for="region">Región</label>
+              <select id="region" name="region">
+                <option value="">Seleccione una región</option>
+              </select>
+              <p class="mensaje-error" id="error-region"></p>
+            </div>
+
+            <div class="grupo-form">
+              <label for="comuna">Comuna</label>
+              <select id="comuna" name="comuna">
+                <option value="">Seleccione una comuna</option>
+              </select>
+              <p class="mensaje-error" id="error-comuna"></p>
+            </div>
+          </div>
+
+          <div class="grupo-form">
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" name="direccion" maxlength="300" placeholder="Calle, número, depto...">
+            <p class="mensaje-error" id="error-direccion"></p>
+          </div>
+
+          <button type="submit" class="btn btn-primario">Registrarme</button>
+          <p class="mt-1">¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <div>
+        <h4>Sonido Vivo</h4>
+        <p>Instrumentos musicales y audio profesional en Viña del Mar.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p>Av. Libertad 1234, Viña del Mar</p>
+      </div>
+      <div>
+        <h4>Enlaces</h4>
+        <p><a href="login.html">Iniciar sesión</a></p>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Sonido Vivo - Viña del Mar.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/validaciones.js"></script>
+</body>
+</html>

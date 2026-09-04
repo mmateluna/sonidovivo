@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novedades - Sonido Vivo</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <div class="contenedor">
+      <a href="index.html" class="logo">Sonido <span>Vivo</span></a>
+      <button class="btn-menu" id="btn-menu" aria-label="Abrir menú">☰</button>
+      <nav class="nav-principal" id="nav-principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="novedades.html" class="activo">Novedades</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="carrito.html">Carrito (<span id="contador-carrito">0</span>)</a></li>
+          <li><a href="login.html">Ingresar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="seccion">
+      <div class="contenedor">
+        <h2>Novedades y tips</h2>
+        <div class="grid-novedades">
+
+          <!-- Novedad 1 -->
+          <article class="tarjeta-novedad">
+            <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=600" alt="Cuidado de guitarra">
+            <div class="info">
+              <p class="fecha">15 de agosto de 2026</p>
+              <h3>Cómo cuidar tu guitarra en invierno</h3>
+              <p>Consejos prácticos para mantener tu guitarra en buen estado durante los meses fríos en Viña del Mar.</p>
+              <a href="detalle-novedad.html?id=1" class="btn btn-secundario btn-pequeno mt-1">Leer más</a>
+            </div>
+          </article>
+
+          <!-- Novedad 2 -->
+          <article class="tarjeta-novedad">
+            <img src="https://images.unsplash.com/photo-1520523839897-bd27f25be155?w=600" alt="Teclados digitales">
+            <div class="info">
+              <p class="fecha">28 de agosto de 2026</p>
+              <h3>Novedades en teclados digitales 2026</h3>
+              <p>Conoce los nuevos modelos de teclados y pianos digitales que llegaron a nuestra tienda este mes.</p>
+              <a href="detalle-novedad.html?id=2" class="btn btn-secundario btn-pequeno mt-1">Leer más</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <div>
+        <h4>Sonido Vivo</h4>
+        <p>Instrumentos musicales y audio profesional en Viña del Mar.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p>Av. Libertad 1234, Viña del Mar</p>
+      </div>
+      <div>
+        <h4>Enlaces</h4>
+        <p><a href="nosotros.html">Sobre nosotros</a></p>
+        <p><a href="contacto.html">Contáctanos</a></p>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Sonido Vivo - Viña del Mar.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

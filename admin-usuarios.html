@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Usuarios - Sonido Vivo</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="admin">
+
+  <header class="encabezado-admin">
+    <div class="contenedor">
+      <a href="admin-index.html" class="logo">
+        Sonido <span>Vivo</span>
+        <span class="badge-admin">ADMIN</span>
+      </a>
+      <nav class="nav-admin">
+        <ul>
+          <li><a href="admin-index.html">Inicio</a></li>
+          <li><a href="admin-productos.html">Productos</a></li>
+          <li><a href="admin-usuarios.html" class="activo">Usuarios</a></li>
+          <li><a href="index.html">← Volver al sitio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="seccion">
+      <div class="contenedor">
+        <h2>Gestión de usuarios</h2>
+
+        <!-- Tabla de usuarios de ejemplo (datos estáticos de prueba) -->
+        <div style="overflow-x: auto;">
+          <table class="tabla-admin">
+            <thead>
+              <tr>
+                <th>RUN</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Tipo</th>
+                <th>Región</th>
+                <th>Comuna</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>123456785</td>
+                <td>Juan González</td>
+                <td>juan@correo.cl</td>
+                <td>Administrador</td>
+                <td>Región de Valparaíso</td>
+                <td>Viña del Mar</td>
+              </tr>
+              <tr>
+                  <td>987654325</td>
+                <td>Laura Díaz</td>
+                <td>laura@correo.cl</td>
+                <td>Vendedor</td>
+                <td>Región de Valparaíso</td>
+                <td>Valparaíso</td>
+              </tr>
+              <tr>
+                <td>112223339</td>
+                <td>Pedro Rojas</td>
+                <td>pedro@correo.cl</td>
+                <td>Cliente</td>
+                <td>Región Metropolitana</td>
+                <td>Santiago</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Formulario crear / editar usuario -->
+        <h2>Crear / Editar usuario</h2>
+        <div class="mensaje-exito" id="mensaje-usuario"></div>
+
+        <form class="formulario formulario-ancho" id="form-usuario" novalidate>
+
+          <div class="fila-form">
+            <div class="grupo-form">
+              <label for="run">RUN (sin puntos ni guión)</label>
+              <input type="text" id="run" name="run" placeholder="Ej: 123456785" maxlength="10">
+              <p class="mensaje-error" id="error-run"></p>
+            </div>
+
+            <div class="grupo-form">
+              <label for="tipo-usuario">Tipo de usuario</label>
+              <select id="tipo-usuario" name="tipo">
+                <option value="">Seleccione...</option>
+                <option value="Administrador">Administrador</option>
+                <option value="Vendedor">Vendedor</option>
+                <option value="Cliente">Cliente</option>
+              </select>
+              <p class="mensaje-error" id="error-tipo-usuario"></p>
+            </div>
+          </div>
+
+          <div class="fila-form">
+            <div class="grupo-form">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" maxlength="50">
+              <p class="mensaje-error" id="error-nombre"></p>
+            </div>
+
+            <div class="grupo-form">
+              <label for="apellidos">Apellidos</label>
+              <input type="text" id="apellidos" name="apellidos" maxlength="100">
+              <p class="mensaje-error" id="error-apellidos"></p>
+            </div>
+          </div>
+
+          <div class="grupo-form">
+            <label for="correo">Correo</label>
+            <input type="email" id="correo" name="correo" maxlength="100">
+            <p class="mensaje-error" id="error-correo"></p>
+          </div>
+
+          <div class="fila-form">
+            <div class="grupo-form">
+              <label for="region">Región</label>
+              <select id="region" name="region">
+                <option value="">Seleccione una región</option>
+              </select>
+              <p class="mensaje-error" id="error-region"></p>
+            </div>
+
+            <div class="grupo-form">
+              <label for="comuna">Comuna</label>
+              <select id="comuna" name="comuna">
+                <option value="">Seleccione una comuna</option>
+              </select>
+              <p class="mensaje-error" id="error-comuna"></p>
+            </div>
+          </div>
+
+          <div class="grupo-form">
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" name="direccion" maxlength="300">
+            <p class="mensaje-error" id="error-direccion"></p>
+          </div>
+
+          <button type="submit" class="btn btn-primario">Guardar usuario</button>
+          <button type="reset" class="btn btn-secundario">Limpiar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <div>
+        <h4>Sonido Vivo - Admin</h4>
+        <p>Gestión de usuarios.</p>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Sonido Vivo - Área administrativa.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/validaciones.js"></script>
+</body>
+</html>

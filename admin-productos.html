@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Productos - Sonido Vivo</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="admin">
+
+  <header class="encabezado-admin">
+    <div class="contenedor">
+      <a href="admin-index.html" class="logo">
+        Sonido <span>Vivo</span>
+        <span class="badge-admin">ADMIN</span>
+      </a>
+      <nav class="nav-admin">
+        <ul>
+          <li><a href="admin-index.html">Inicio</a></li>
+          <li><a href="admin-productos.html" class="activo">Productos</a></li>
+          <li><a href="admin-usuarios.html">Usuarios</a></li>
+          <li><a href="index.html">← Volver al sitio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="seccion">
+      <div class="contenedor">
+        <h2>Gestión de productos</h2>
+
+        <!-- Tabla de productos (se llena con JS) -->
+        <div style="overflow-x: auto;">
+          <table class="tabla-admin">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-productos-body">
+              <!-- Filas generadas por main.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Formulario simulado para agregar / editar -->
+        <h2>Agregar / Editar producto</h2>
+        <div class="mensaje-exito" id="mensaje-producto"></div>
+
+        <form class="formulario formulario-ancho" id="form-producto">
+          <div class="fila-form">
+            <div class="grupo-form">
+              <label for="prod-id">ID (solo lectura al editar)</label>
+              <input type="text" id="prod-id" name="id" placeholder="Automático / al editar">
+            </div>
+            <div class="grupo-form">
+              <label for="prod-categoria">Categoría</label>
+              <select id="prod-categoria" name="categoria">
+                <option value="Guitarras">Guitarras</option>
+                <option value="Baterías">Baterías</option>
+                <option value="Teclados">Teclados</option>
+                <option value="Amplificadores">Amplificadores</option>
+                <option value="Audio">Audio</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grupo-form">
+            <label for="prod-nombre">Nombre del producto</label>
+            <input type="text" id="prod-nombre" name="nombre" maxlength="100" placeholder="Nombre">
+          </div>
+
+          <div class="fila-form">
+            <div class="grupo-form">
+              <label for="prod-precio">Precio (CLP)</label>
+              <input type="number" id="prod-precio" name="precio" min="0" placeholder="189990">
+            </div>
+            <div class="grupo-form">
+              <label for="prod-imagen">URL de imagen</label>
+              <input type="text" id="prod-imagen" name="imagen" placeholder="https://...">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primario">Guardar producto</button>
+          <button type="reset" class="btn btn-secundario">Limpiar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <div>
+        <h4>Sonido Vivo - Admin</h4>
+        <p>Gestión de productos.</p>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Sonido Vivo - Área administrativa.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/validaciones.js"></script>
+</body>
+</html>
