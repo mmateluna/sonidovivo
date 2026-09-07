@@ -35,10 +35,10 @@ function limpiarError(idCampo) {
   }
 }
 
-/** Valida formato de correo con una expresión regular básica */
+/** Valida formato de correo y restringe a los dominios permitidos por la tienda */
 function esCorreoValido(correo) {
-  // Patrón simple: texto@texto.texto
-  const patron = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // Solo se aceptan correos @duoc.cl, @profesor.duoc.cl y @gmail.com
+  const patron = /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
   return patron.test(correo);
 }
 
@@ -122,7 +122,7 @@ function validarFormularioLogin(evento) {
     mostrarError("login-correo", "El correo no puede superar 100 caracteres.");
     esValido = false;
   } else if (!esCorreoValido(correo)) {
-    mostrarError("login-correo", "Ingresa un correo válido (ej: nombre@correo.cl).");
+    mostrarError("login-correo", "Solo se aceptan correos @duoc.cl, @profesor.duoc.cl o @gmail.com.");
     esValido = false;
   }
 
@@ -179,7 +179,7 @@ function validarFormularioContacto(evento) {
     mostrarError("contacto-correo", "El correo no puede superar 100 caracteres.");
     esValido = false;
   } else if (!esCorreoValido(correo)) {
-    mostrarError("contacto-correo", "Ingresa un correo válido.");
+    mostrarError("contacto-correo", "Solo se aceptan correos @duoc.cl, @profesor.duoc.cl o @gmail.com.");
     esValido = false;
   }
 
@@ -271,7 +271,7 @@ function validarFormularioUsuario(evento) {
     mostrarError("correo", "El correo no puede superar 100 caracteres.");
     esValido = false;
   } else if (!esCorreoValido(correo)) {
-    mostrarError("correo", "Ingresa un correo válido.");
+    mostrarError("correo", "Solo se aceptan correos @duoc.cl, @profesor.duoc.cl o @gmail.com.");
     esValido = false;
   }
 
@@ -313,6 +313,95 @@ function validarFormularioUsuario(evento) {
 }
 
 /* --------------------------------------------------
+   4. VALIDAR PRODUCTO (admin-productos.html)
+   -------------------------------------------------- */
+function validarFormularioProducto(evento) {
+  evento.preventDefault();
+
+  let esValido = true;
+
+  const codigo = document.getElementById("prod-codigo").value.trim();
+  const categoria = document.getElementById("prod-categoria").value;
+  const nombre = document.getElementById("prod-nombre").value.trim();
+  const descripcion = document.getElementById("prod-descripcion").value.trim();
+  const precio = document.getElementById("prod-precio").value;
+  const stock = document.getElementById("prod-stock").value;
+  const stockCritico = document.getElementById("prod-stock-critico").value;
+
+  limpiarError("prod-codigo");
+  limpiarError("prod-categoria");
+  limpiarError("prod-nombre");
+  limpiarError("prod-descripcion");
+  limpiarError("prod-precio");
+  limpiarError("prod-stock");
+  limpiarError("prod-stock-critico");
+
+  // Código: obligatorio, texto, mínimo 3 caracteres, sin límite máximo
+  if (codigo === "") {
+    mostrarError("prod-codigo", "El código del producto es obligatorio.");
+    esValido = false;
+  } else if (codigo.length < 3) {
+    mostrarError("prod-codigo", "El código debe tener al menos 3 caracteres.");
+    esValido = false;
+  }
+
+  // Categoría: obligatoria
+  if (categoria === "") {
+    mostrarError("prod-categoria", "Selecciona una categoría.");
+    esValido = false;
+  }
+
+  // Nombre: obligatorio, máx 100
+  if (nombre === "") {
+    mostrarError("prod-nombre", "El nombre del producto es obligatorio.");
+    esValido = false;
+  } else if (nombre.length > 100) {
+    mostrarError("prod-nombre", "El nombre no puede superar 100 caracteres.");
+    esValido = false;
+  }
+
+  // Descripción: opcional, máx 500
+  if (descripcion.length > 500) {
+    mostrarError("prod-descripcion", "La descripción no puede superar 500 caracteres.");
+    esValido = false;
+  }
+
+  // Precio: obligatorio, min 0 (permite productos FREE), acepta decimales
+  if (precio === "") {
+    mostrarError("prod-precio", "El precio es obligatorio.");
+    esValido = false;
+  } else if (parseFloat(precio) < 0) {
+    mostrarError("prod-precio", "El precio no puede ser negativo.");
+    esValido = false;
+  }
+
+  // Stock: obligatorio, min 0, solo números enteros
+  if (stock === "") {
+    mostrarError("prod-stock", "El stock es obligatorio.");
+    esValido = false;
+  } else if (!Number.isInteger(Number(stock)) || Number(stock) < 0) {
+    mostrarError("prod-stock", "El stock debe ser un número entero igual o mayor a 0.");
+    esValido = false;
+  }
+
+  // Stock crítico: opcional, min 0, solo números enteros
+  if (stockCritico !== "" && (!Number.isInteger(Number(stockCritico)) || Number(stockCritico) < 0)) {
+    mostrarError("prod-stock-critico", "El stock crítico debe ser un número entero igual o mayor a 0.");
+    esValido = false;
+  }
+
+  if (esValido) {
+    const mensaje = document.getElementById("mensaje-producto");
+    if (mensaje) {
+      mensaje.textContent = "Producto guardado correctamente (simulación).";
+      mensaje.classList.add("visible");
+    }
+  }
+
+  return esValido;
+}
+
+/* --------------------------------------------------
    CONECTAR VALIDACIONES AL CARGAR LA PÁGINA
    -------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", function () {
@@ -331,16 +420,9 @@ document.addEventListener("DOMContentLoaded", function () {
     formUsuario.addEventListener("submit", validarFormularioUsuario);
   }
 
-  // Formulario de producto admin (simulado, sin validación estricta)
+  // Formulario de producto admin
   const formProducto = document.getElementById("form-producto");
   if (formProducto) {
-    formProducto.addEventListener("submit", function (evento) {
-      evento.preventDefault();
-      const mensaje = document.getElementById("mensaje-producto");
-      if (mensaje) {
-        mensaje.textContent = "Producto guardado correctamente (simulación).";
-        mensaje.classList.add("visible");
-      }
-    });
+    formProducto.addEventListener("submit", validarFormularioProducto);
   }
 });

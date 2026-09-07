@@ -20,7 +20,7 @@
   --ancho-max: 1200px;
 }
 
-/* --- Reset básico --- */
+/* --- Reset basico --- */
 * {
   margin: 0;
   padding: 0;
@@ -69,7 +69,7 @@ main {
 }
 
 /* ============================================
-   HEADER Y NAVEGACIÓN (área pública)
+   HEADER Y NAVEGACIoN (area publica)
    ============================================ */
 .encabezado {
   background-color: var(--color-fondo-claro);
@@ -101,7 +101,7 @@ main {
   color: var(--color-acento);
 }
 
-/* Botón hamburguesa (móvil) */
+/* Boton hamburguesa (movil) */
 .btn-menu {
   display: none;
   background: none;
@@ -218,7 +218,7 @@ main {
 }
 
 /* ============================================
-   SECCIONES Y TÍTULOS
+   SECCIONES Y TITULOS
    ============================================ */
 .seccion {
   padding: 2rem 0;
@@ -535,7 +535,7 @@ main {
 }
 
 /* ============================================
-   ÁREA ADMINISTRATIVA (estilo diferenciado)
+   AREA ADMINISTRATIVA (estilo diferenciado)
    ============================================ */
 body.admin {
   background-color: #121212;
@@ -711,6 +711,14 @@ body.admin {
 
 .mb-1 {
   margin-bottom: 1rem;
+}
+
+.video-institucional iframe {
+  display: block;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border-radius: 8px;
 }
 
 /* ============================================

@@ -11,66 +11,90 @@
 const productos = [
   {
     id: 1,
+    codigo: "GA001",
     nombre: "Guitarra Acústica Yamaha F310",
     precio: 189990,
     categoria: "Guitarras",
-    imagen: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=400",
+    stock: 8,
+    stockCritico: 2,
+    imagen: "img/cuidadoguitarra.jpg",
     descripcion: "Guitarra acústica ideal para principiantes. Sonido equilibrado y construcción resistente. Perfecta para estudiar y tocar en casa."
   },
   {
     id: 2,
+    codigo: "GE001",
     nombre: "Guitarra Eléctrica Fender Stratocaster",
     precio: 899990,
     categoria: "Guitarras",
-    imagen: "https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?w=400",
+    stock: 5,
+    stockCritico: 1,
+    imagen: "img/Stratocaster.jpg",
     descripcion: "Clásico modelo Stratocaster con pastillas single-coil. Ideal para rock, blues y pop. Incluye funda."
   },
   {
     id: 3,
+    codigo: "BA001",
     nombre: "Batería Acústica Pearl Export",
     precio: 649990,
     categoria: "Baterías",
-    imagen: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=400",
-    descripcion: "Kit completo de 5 cuerpos con platillos. Ideal para estudio y presentaciones en vivo. Acabado profesional."
+    stock: 3,
+    stockCritico: 1,
+    imagen: "img/pearlexport.jpg",
+    descripcion: "Exportación está disponible con una amplia gama de configuraciones, acabados cubiertos y componentes complementarios que coinciden para crear una configuración tan única como su firma de juego."
   },
   {
     id: 4,
+    codigo: "BE001",
     nombre: "Batería Electrónica Roland TD-17",
     precio: 1199990,
     categoria: "Baterías",
-    imagen: "https://images.unsplash.com/photo-1571327073757-71d13c24de30?w=400",
+    stock: 2,
+    stockCritico: 1,
+    imagen: "img/td17.jpg",
     descripcion: "Batería electrónica con pads de malla silenciosos. Ideal para practicar en departamentos sin molestar."
   },
   {
     id: 5,
+    codigo: "TE001",
     nombre: "Teclado Casio CT-X700",
     precio: 249990,
     categoria: "Teclados",
-    imagen: "https://images.unsplash.com/photo-1520523839897-bd27f25be155?w=400",
+    stock: 10,
+    stockCritico: 3,
+    imagen: "img/ctx700.jpg",
     descripcion: "61 teclas con cientos de tonos y ritmos. Perfecto para aprender piano y composición musical."
   },
   {
     id: 6,
+    codigo: "TE002",
     nombre: "Piano Digital Yamaha P-45",
     precio: 449990,
     categoria: "Teclados",
-    imagen: "https://images.unsplash.com/photo-1552422535-c45813c61732?w=400",
+    stock: 4,
+    stockCritico: 1,
+    imagen: "img/yamahap45.jpg",
     descripcion: "88 teclas con acción martillo graduada. Sonido de piano de cola auténtico. Incluye pedal sustain."
   },
   {
     id: 7,
+    codigo: "AM001",
     nombre: "Amplificador Marshall MG15",
     precio: 159990,
     categoria: "Amplificadores",
-    imagen: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=400",
+    stock: 6,
+    stockCritico: 2,
+    imagen: "img/mg15.jpg",
     descripcion: "Amplificador de guitarra 15W con efectos. Compacto y potente para ensayo y estudio."
   },
   {
     id: 8,
+    codigo: "AU001",
     nombre: "Micrófono Shure SM58",
     precio: 129990,
     categoria: "Audio",
-    imagen: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=400",
+    stock: 15,
+    stockCritico: 4,
+    imagen: "img/shuresm58.jpg",
     descripcion: "El micrófono de voz más usado en el mundo. Ideal para escenarios y grabación. Resistente y confiable."
   }
 ];
@@ -280,7 +304,7 @@ function renderizarDestacados() {
 
 /* --------------------------------------------------
    6. RENDERIZAR DETALLE DE PRODUCTO
-   Lee el ?id= de la URL y muestra ese producto
+   Lee el "?id=" de la URL y muestra ese producto
    -------------------------------------------------- */
 function renderizarDetalleProducto() {
   const contenedor = document.getElementById("detalle-producto");
@@ -300,8 +324,8 @@ function renderizarDetalleProducto() {
     contenedor.innerHTML = "<p>Producto no encontrado. <a href='catalogo.html'>Volver al catálogo</a></p>";
     return;
   }
-
-  contenedor.innerHTML = `
+/* ``` */
+  contenedor.innerHTML = ` 
     <div>
       <img src="${producto.imagen}" alt="${producto.nombre}">
     </div>
@@ -330,7 +354,7 @@ function renderizarCarrito() {
 
   const carrito = obtenerCarrito();
 
-  // Si el carrito está vacío, mostramos un mensaje
+  // Si el carrito esta vacio se muestra un mensaje
   if (carrito.length === 0) {
     contenedor.innerHTML = `
       <div class="carrito-vacio">
@@ -383,8 +407,8 @@ function renderizarCarrito() {
 }
 
 /* --------------------------------------------------
-   8. REGIONES Y COMUNAS (selects dinámicos)
-   Cuando cambia la región, se llenan las comunas
+   8. REGIONES Y COMUNAS (selects dinamicos)
+   Cuando cambia la region, se llenan las comunas
    -------------------------------------------------- */
 function inicializarRegiones() {
   const selectRegion = document.getElementById("region");
@@ -396,7 +420,7 @@ function inicializarRegiones() {
   }
 
   // Llenamos el select de regiones
-  selectRegion.innerHTML = '<option value="">Seleccione una región</option>';
+  selectRegion.innerHTML = '<option value="">Seleccione una region</option>';
   regionesChile.forEach(function (region) {
     selectRegion.innerHTML += `<option value="${region.nombre}">${region.nombre}</option>`;
   });
@@ -404,12 +428,12 @@ function inicializarRegiones() {
   // Comuna vacía al inicio
   selectComuna.innerHTML = '<option value="">Seleccione una comuna</option>';
 
-  // Cuando el usuario cambia la región...
+  // Cuando el usuario cambia la region...
   selectRegion.addEventListener("change", function () {
     const regionElegida = selectRegion.value;
     selectComuna.innerHTML = '<option value="">Seleccione una comuna</option>';
 
-    // Buscamos la región en el arreglo
+    // Buscamos la region en el arreglo
     const region = regionesChile.find(function (r) {
       return r.nombre === regionElegida;
     });
@@ -423,7 +447,7 @@ function inicializarRegiones() {
 }
 
 /* --------------------------------------------------
-   9. MENÚ HAMBURGUESA (móvil)
+   9. MENU (movil)
    -------------------------------------------------- */
 function inicializarMenuMovil() {
   const btnMenu = document.getElementById("btn-menu");
@@ -447,7 +471,7 @@ const novedades = [
     id: 1,
     titulo: "Cómo cuidar tu guitarra en invierno",
     fecha: "15 de agosto de 2026",
-    imagen: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=800",
+    imagen: "img/cuidadoguitarra.jpg",
     resumen: "Consejos prácticos para mantener tu guitarra en buen estado durante los meses fríos en Viña del Mar.",
     contenido: `
       <p>El invierno en la costa de Valparaíso trae humedad y cambios de temperatura que pueden afectar tus instrumentos de cuerda.</p>
@@ -459,7 +483,7 @@ const novedades = [
     id: 2,
     titulo: "Novedades en teclados digitales 2026",
     fecha: "28 de agosto de 2026",
-    imagen: "https://images.unsplash.com/photo-1520523839897-bd27f25be155?w=800",
+    imagen: "img/tecladosdigitales.jpg",
     resumen: "Conoce los nuevos modelos de teclados y pianos digitales que llegaron a nuestra tienda este mes.",
     contenido: `
       <p>Este mes recibimos una nueva partida de teclados Casio y pianos digitales Yamaha, ideales tanto para estudiantes como para músicos profesionales.</p>
@@ -511,11 +535,12 @@ function renderizarTablaProductosAdmin() {
   productos.forEach(function (producto) {
     html += `
       <tr>
-        <td>${producto.id}</td>
+        <td>${producto.codigo}</td>
         <td><img src="${producto.imagen}" alt="${producto.nombre}"></td>
         <td>${producto.nombre}</td>
         <td>${producto.categoria}</td>
         <td>${formatearPrecio(producto.precio)}</td>
+        <td>${producto.stock}</td>
         <td>
           <button class="btn btn-secundario btn-pequeno" onclick="editarProductoSimulado(${producto.id})">Editar</button>
         </td>
@@ -534,17 +559,23 @@ function editarProductoSimulado(id) {
     return;
   }
 
-  const campoId = document.getElementById("prod-id");
+  const campoCodigo = document.getElementById("prod-codigo");
   const campoNombre = document.getElementById("prod-nombre");
+  const campoDescripcion = document.getElementById("prod-descripcion");
   const campoPrecio = document.getElementById("prod-precio");
   const campoCategoria = document.getElementById("prod-categoria");
   const campoImagen = document.getElementById("prod-imagen");
+  const campoStock = document.getElementById("prod-stock");
+  const campoStockCritico = document.getElementById("prod-stock-critico");
 
-  if (campoId) campoId.value = producto.id;
+  if (campoCodigo) campoCodigo.value = producto.codigo;
   if (campoNombre) campoNombre.value = producto.nombre;
+  if (campoDescripcion) campoDescripcion.value = producto.descripcion;
   if (campoPrecio) campoPrecio.value = producto.precio;
   if (campoCategoria) campoCategoria.value = producto.categoria;
   if (campoImagen) campoImagen.value = producto.imagen;
+  if (campoStock) campoStock.value = producto.stock;
+  if (campoStockCritico) campoStockCritico.value = producto.stockCritico;
 
   // Scroll hacia el formulario
   const form = document.getElementById("form-producto");
